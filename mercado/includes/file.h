@@ -6,7 +6,6 @@
 #include <iostream>
 #include <cstring>
 #include <algorithm>
-#include <cctype>
 #include <fstream>
 #include <chrono>
 #include <thread>
@@ -14,6 +13,22 @@
 #include "banners.h"
 
 #define TEMPO 1000
+
+// void contadorDeUso(void)
+// {
+//     using clock = std::chrono::steady_clock;
+//     auto inicio = clock::now();
+
+//     while (true)
+//     {
+//         auto agora = clock::now();
+//         auto duracao = std::chrono::duration_cast<std::chrono::seconds>(agora - inicio).count();
+
+//         std::cout << VERMELHO << NEGRITO << "\rTempo de uso: " << duracao << " segundos" << RESET << std::flush;
+
+//         std::this_thread::sleep_for(std::chrono::seconds(1));
+//     }
+// }
 
 void contador(void)
 {
@@ -24,8 +39,10 @@ void mensagemSaida(const std::string &s)
 {
     if (std::strcmp(s.c_str(), "sair") == 0)
     {
-        std::cout << '\n' << "Obrigado por usar este programa! " << "\U0001F603" << '\n';
+        std::cout << '\n'
+                  << "Obrigado por usar este programa! " << "\U0001F603" << '\n';
         std::cout << VERMELHO << "Encerrando o programa!" << RESET << '\n';
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
         contador();
     }
 }
@@ -39,51 +56,20 @@ void opcaoInvalidaMenu(const std::string &a)
     }
 }
 
-/**
- * @brief Verifica se a string fornecida contém apenas caracteres numéricos.
- *
- * Esta função verifica se todos os caracteres da string 'num' são dígitos.
- * Caso a string esteja vazia ou contenha algum caractere não numérico,
- * a função retorna false e exibe uma mensagem de erro.
- *
- * @param num Referência constante para a string a ser verificada.
- * @return true se a string contém apenas números e não está vazia, false caso contrário.
- */
-bool somenteNumeros(const std::string& num)
+void tratar_opcao_menu_principal(const std::string& opcao)
 {
-    if(num.empty())
+    if(opcao == "1")
     {
-        return false;
+        banner_hortifruti();
     }
-
-    for(auto& n : num)
-    {
-        if(!std::isdigit(n))
-        {
-            std::cout << VERMELHO <<"Insira apenas números!" << RESET << '\n';
-            return false;
-        }
-    }
-
-    return true;
 }
 
-/**
- * @brief Exibe mensagens relacionadas à entrada do usuário e valida se a entrada contém apenas números.
- *
- * Esta função chama as funções auxiliares para exibir mensagens de opção inválida e de saída,
- * utilizando a string fornecida como parâmetro. Em seguida, verifica se a string contém apenas números;
- * caso contrário, a execução da função é encerrada.
- *
- * @param s String de entrada a ser validada e utilizada nas mensagens.
- */
 void retornarMensagens(const std::string &s)
 {
     opcaoInvalidaMenu(s);
     mensagemSaida(s);
-
-    // if (somenteNumeros(s) == false)
-    //     return;
+    // tratar_opcao_menu_principal(s);
 }
+
 
 #endif // FILE_H

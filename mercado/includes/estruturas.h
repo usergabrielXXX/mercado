@@ -1,15 +1,17 @@
 #include <vector>
 #include <string>
 
-typedef struct FLV
+// typedef struct MENU_FLV{} MENU_FLV; // mexer nisso depois
+
+typedef struct PRODUTOS_FLV
 {
     std::vector<std::string> frutas{"maçã", "banana", "laranja", "manga", "uva", "abacaxi", "morango", "melancia", "kiwi", "pêssego"};
     std::vector<std::string> legumes{"cenoura", "batata", "pimenta", "beringela", "alho", "pepino", "tomate", "vagem", "milho", "abobora"};
     std::vector<std::string> verduras{"alface", "couve", "espinafre", "rúcula", "agrião", "acelga", "escarola", "mostarda", "cebolinha", "salsinha"};
 
-} FLV;
+} PRODUTOS_FLV;
 
-typedef struct EMOJIS
+typedef struct EMOJIS_PRODUTOS_FLV
 {
     std::vector<std::string> frutas{
         "\U0001F34E", // maçã
@@ -50,4 +52,4 @@ typedef struct EMOJIS
         "\U0001F33F"  // salsinha
     };
 
-} EMOJIS;
+} EMOJIS_PRODUTOS_FLV;
