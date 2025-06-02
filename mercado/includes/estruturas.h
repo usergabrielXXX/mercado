@@ -1,6 +1,6 @@
 #include <vector>
 #include <string>
-
+#include "cores.h"
 typedef struct PRODUTOS_FLV
 {
     std::vector<std::string> frutas{"maçã", "banana", "laranja", "manga", "uva", "abacaxi", "morango", "melancia", "kiwi", "pêssego"};

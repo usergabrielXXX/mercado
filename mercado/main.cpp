@@ -2,9 +2,7 @@
 
 int main(void)
 {
-    std::string opcao_menu;
-
-
+    std::string opcao_menu, op_fruta;
 
     do
     {
@@ -20,17 +18,39 @@ int main(void)
             do // loop hortifruti
             {
                 banner.banner_hortifruti();
-                printar_produtos_frutas();
-                
+                menu_hortifruti();
+
                 std::cout << "Escolha o produto que deseja: ";
                 std::getline(std::cin, opcao_hortifruti);
 
-                if (opcao_hortifruti == "voltar")
+                if (opcao_hortifruti == "1")
+                {
+                    do // loop frutas
+                    {
+                        banner.banner_frutas();
+                        exibir_frutas_hortifruti();
+                        std::cout << "Escolha o produto: ";
+                        std::getline(std::cin, op_fruta);
+                        
+                        if(op_fruta == "mh")
+                        {
+                            break;
+                        }
+                    } while (1); // fim loop frutas
+                }
+
+                if (opcao_hortifruti == "menu")
                 {
                     break;
                 }
 
-            } while (1); // fim do loop hortifruti
+                if (opcao_hortifruti > "3")
+                {
+                    std::cout << NEGRITO << VERMELHO << "Opção inválida!" << RESET << '\n';
+                    contador();
+                }
+
+            } while (1); // fim loop hortifruti
         }
 
         retornarMensagens(opcao_menu);
