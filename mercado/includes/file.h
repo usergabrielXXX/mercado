@@ -1,5 +1,3 @@
-/* arquivo: file.h */
-
 #ifndef FILE_H
 #define FILE_H
 
@@ -13,6 +11,8 @@
 #include "banners.h"
 
 #define TEMPO 1000
+
+BANNERS banner;
 
 // void contadorDeUso(void)
 // {
@@ -35,41 +35,37 @@ void contador(void)
     std::this_thread::sleep_for(std::chrono::milliseconds(TEMPO));
 }
 
-void mensagemSaida(const std::string &s)
+bool mensagemSaida(const std::string &s)
 {
     if (std::strcmp(s.c_str(), "sair") == 0)
     {
-        std::cout << '\n'
-                  << "Obrigado por usar este programa! " << "\U0001F603" << '\n';
-        std::cout << VERMELHO << "Encerrando o programa!" << RESET << '\n';
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
-        contador();
+        std::cout << NEGRITO << ITALICO << "\nObrigado por usar este programa! " << RESET << "\U0001F603" << '\n';
     }
-}
 
-void opcaoInvalidaMenu(const std::string &a)
-{
-    if (std::strcmp(a.c_str(), "sair") != 0)
-    {
-        std::cout << VERMELHO << "\U0001F7E5" << " Essa opção não existe!" << RESET << '\n';
-        contador();
-    }
-}
-
-void tratar_opcao_menu_principal(const std::string& opcao)
-{
-    if(opcao == "1")
-    {
-        banner_hortifruti();
-    }
+    return true;
 }
 
 void retornarMensagens(const std::string &s)
 {
-    opcaoInvalidaMenu(s);
     mensagemSaida(s);
-    // tratar_opcao_menu_principal(s);
 }
 
+void printar_produtos_frutas(/*const PRODUTOS_FLV &produtos, const EMOJIS_PRODUTOS_FLV &emoji*/)
+{
+    PRODUTOS_FLV produtos;
+    EMOJIS_PRODUTOS_FLV emoji;
+
+    std::cout << NEGRITO << "Índice\tFruta" << RESET << '\n';//\t\t\tLegume\t\t\tVerdura\n";
+    size_t tamanho = std::min({produtos.frutas.size(), emoji.frutas.size()});
+    for (size_t i = 0; i < tamanho; ++i)
+    {
+        std::cout << '[' << i << ']'<< " - " << emoji.frutas[i] << " " << produtos.frutas[i] << '\n';
+        
+        /* organizar depois */
+
+        //   << emoji.legumes[i] << " " << produtos.legumes[i] << "\t"
+        //   << emoji.verduras[i] << " " << produtos.verduras[i] << "\n";
+    }
+}
 
 #endif // FILE_H

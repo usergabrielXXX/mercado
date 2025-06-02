@@ -34,6 +34,7 @@
 #define FUNDO_MAGENTA_CLARO "\033[105m"
 #define FUNDO_CIANO_CLARO "\033[106m"
 #define FUNDO_BRANCO_CLARO "\033[107m"
+#define ITALICO "\033[3m"
 #define NEGRITO "\033[1m"
 #define SUBLINHADO "\033[4m"
 #define INVERSO "\033[7m"
@@ -52,55 +53,63 @@ void Clear()
 #endif // __WIN32
 }
 
-bool banner_menu(void)
+typedef struct BANNERS
 {
-    Clear();
 
-    std::ifstream arquivo("includes/banners/1_bannerMenuPrincipal.txt");
-    std::string linha;
-
-    if (!arquivo.is_open())
+    bool banner_menu(void)
     {
-        std::cout << "Erro ao abrir o arquivo!" << '\n';
-        return false;
+        Clear();
+
+        std::ifstream arquivo("includes/banners/1_bannerMenuPrincipal.txt");
+        std::string linha;
+
+        if (!arquivo.is_open())
+        {
+            std::cout << "Erro ao abrir o arquivo!" << '\n';
+            return false;
+        }
+
+        do
+        {
+            std::cout << AZUL << NEGRITO << linha << RESET << '\n';
+        } while (std::getline(arquivo, linha));
+
+        std::cout << VERMELHO << SUBLINHADO << NEGRITO << "PARA SAIR DESTE PROGRAMA BASTA DIGITAR \"sair\"" << RESET << '\n';
+
+        return true;
     }
 
-    do
+    // MENU DE HORTIFRUTI
+    bool banner_hortifruti(void)
     {
-        std::cout << AZUL << NEGRITO << linha << RESET << '\n';
-    } while (std::getline(arquivo, linha));
+        Clear();
 
-    std::cout << VERMELHO << SUBLINHADO << NEGRITO << "PARA SAIR DESTE PROGRAMA BASTA DIGITAR \"sair\"" << RESET << '\n';
+        std::ifstream arquivo("includes/banners/2_bannerHortifruti.txt");
+        std::string linha;
 
-    return true;
-}
+        if (!arquivo.is_open())
+        {
+            std::cout << "Erro ao abrir o arquivo!" << '\n';
+            return false;
+        }
 
-bool banner_hortifruti(void)
-{
-    Clear();
+        do
+        {
+            std::cout << AZUL << NEGRITO << linha << RESET << '\n';
+        } while (std::getline(arquivo, linha));
 
-    std::ifstream arquivo("includes/banners/2_bannerHortifruti.txt");
-    std::string linha;
+        std::cout << VERMELHO << SUBLINHADO << NEGRITO << "PARA VOLTAR AO MENU PRINCIPAL BASTA DIGITAR \"voltar\"" << RESET << '\n';
 
-    if (!arquivo.is_open())
-    {
-        std::cout << "Erro ao abrir o arquivo!" << '\n';
-        return false;
+        return true;
     }
 
-    do
-    {
-        std::cout << AZUL << NEGRITO << linha << RESET << '\n';
-    } while (std::getline(arquivo, linha));
-
-    std::cout << VERMELHO << SUBLINHADO << NEGRITO << "PARA SAIR DESTE PROGRAMA BASTA DIGITAR \"sair\"" << RESET << '\n';
-
-    return true;
-}
+} BANNERS;
 
 void menu_principal_mercado(void)
 {
-    banner_menu();
+    BANNERS banner;
+
+    banner.banner_menu();
     std::cout << VERDE << "\U0001F96C 1. Hortifruti" << RESET << '\n';
     std::cout << VERDE << "\U0001F35E 2. Padaria e confeitaria" << RESET << '\n';
     std::cout << VERDE << "\U0001F969 3. Açougue" << RESET << '\n';

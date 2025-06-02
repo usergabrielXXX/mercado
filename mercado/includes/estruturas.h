@@ -1,8 +1,6 @@
 #include <vector>
 #include <string>
 
-// typedef struct MENU_FLV{} MENU_FLV; // mexer nisso depois
-
 typedef struct PRODUTOS_FLV
 {
     std::vector<std::string> frutas{"maçã", "banana", "laranja", "manga", "uva", "abacaxi", "morango", "melancia", "kiwi", "pêssego"};

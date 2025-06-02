@@ -1,13 +1,10 @@
-/* arquivo-pai: main.cpp */
-
 #include "includes/file.h"
 
 int main(void)
 {
     std::string opcao_menu;
 
-    // EMOJIS_PRODUTOS_FLV* emojis = new EMOJIS_PRODUTOS_FLV();
-    // std::shared_ptr<EMOJIS_PRODUTOS_FLV> emojis();
+
 
     do
     {
@@ -16,12 +13,29 @@ int main(void)
         std::cout << "Insira a opção desejada: ";
         std::getline(std::cin, opcao_menu);
 
+        std::string opcao_hortifruti;
+
+        if (opcao_menu == "1")
+        {
+            do // loop hortifruti
+            {
+                banner.banner_hortifruti();
+                printar_produtos_frutas();
+                
+                std::cout << "Escolha o produto que deseja: ";
+                std::getline(std::cin, opcao_hortifruti);
+
+                if (opcao_hortifruti == "voltar")
+                {
+                    break;
+                }
+
+            } while (1); // fim do loop hortifruti
+        }
+
         retornarMensagens(opcao_menu);
-        tratar_opcao_menu_principal(opcao_menu);
 
     } while (std::strcmp(opcao_menu.c_str(), "sair") != 0);
-
-    // delete emojis; emojis = nullptr;
 
     return 0;
 }
