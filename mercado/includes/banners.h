@@ -1,5 +1,5 @@
 #ifndef BANNERS_H
-#define BANNER_H
+#define BANNERS_H
 
 #include "estruturas.h"
 
@@ -58,7 +58,7 @@ typedef struct BANNERS
             std::cout << AZUL << NEGRITO << linha << RESET << '\n';
         } while (std::getline(arquivo, linha));
 
-        std::cout << VERMELHO << SUBLINHADO << NEGRITO << "PARA VOLTAR AO MENU PRINCIPAL BASTA DIGITAR \"menu\"" << RESET << '\n';
+        std::cout << VERMELHO << SUBLINHADO << NEGRITO << "PARA VOLTAR A SESSÃO ANTERIOR DIGITE \"<<\"" << RESET << '\n';
 
         return true;
     }
@@ -83,7 +83,55 @@ typedef struct BANNERS
             std::cout << AZUL << NEGRITO << linha << RESET << '\n';
         } while (std::getline(arquivo, linha));
 
-        std::cout << VERMELHO << SUBLINHADO << NEGRITO << "PARA VOLTAR AO MENU PRINCIPAL BASTA DIGITAR \"mh\"" << RESET << '\n';
+        std::cout << VERMELHO << SUBLINHADO << NEGRITO << "PARA VOLTAR A SESSÃO ANTERIOR DIGITE \"<<\"" << RESET << '\n';
+
+        return true;
+    }
+
+    // legumes.txt
+
+    bool banner_legumes(void)
+    {
+        Clear();
+
+        std::ifstream arquivo("includes/banners/legumes.txt");
+        std::string linha;
+
+        if (!arquivo.is_open())
+        {
+            std::cout << "Erro ao abrir o arquivo!" << '\n';
+            return false;
+        }
+
+        do
+        {
+            std::cout << AZUL << NEGRITO << linha << RESET << '\n';
+        } while (std::getline(arquivo, linha));
+
+        std::cout << VERMELHO << SUBLINHADO << NEGRITO << "PARA VOLTAR A SESSÃO ANTERIOR DIGITE \"<<\"" << RESET << '\n';
+
+        return true;
+    }
+
+    bool banner_verduras(void)
+    {
+        Clear();
+
+        std::ifstream arquivo("includes/banners/verduras.txt");
+        std::string linha;
+
+        if (!arquivo.is_open())
+        {
+            std::cout << "Erro ao abrir o arquivo!" << '\n';
+            return false;
+        }
+
+        do
+        {
+            std::cout << AZUL << NEGRITO << linha << RESET << '\n';
+        } while (std::getline(arquivo, linha));
+
+        std::cout << VERMELHO << SUBLINHADO << NEGRITO << "PARA VOLTAR A SESSÃO ANTERIOR DIGITE \"<<\"" << RESET << '\n';
 
         return true;
     }
@@ -115,11 +163,37 @@ void exibir_frutas_hortifruti(void)
     PRODUTOS_FLV produtos;
     EMOJIS_PRODUTOS_FLV emoji;
 
-    std::cout << NEGRITO << "Índice\tFruta" << RESET << '\n';
+    std::cout << NEGRITO << "Índice\tFrutas" << RESET << '\n';
     size_t tamanho = std::min({produtos.frutas.size(), emoji.frutas.size()});
     for (size_t i = 0; i < tamanho; ++i)
     {
-        std::cout << '[' << i << ']' << " - " << emoji.frutas[i] << " " << produtos.frutas[i] << '\n';
+        std::cout << '[' << i << ']' << emoji.frutas[i] << " " << produtos.frutas[i] << '\n';
+    }
+}
+
+void exibir_legumes_hortifruti(void)
+{
+    PRODUTOS_FLV produtos;
+    EMOJIS_PRODUTOS_FLV emoji;
+
+    std::cout << NEGRITO << "Índice\tLegumes" << RESET << '\n';
+    size_t tamanho = std::min({produtos.legumes.size(), emoji.legumes.size()});
+    for (size_t i = 0; i < tamanho; ++i)
+    {
+        std::cout << '[' << i << ']' << emoji.legumes[i] << " " << produtos.legumes[i] << '\n';
+    }
+}
+
+void exibir_verduras_hortifruti(void)
+{
+    PRODUTOS_FLV produtos;
+    EMOJIS_PRODUTOS_FLV emoji;
+
+    std::cout << NEGRITO << "Índice\tVerduras" << RESET << '\n';
+    size_t tamanho = std::min({produtos.verduras.size(), emoji.verduras.size()});
+    for (size_t i = 0; i < tamanho; ++i)
+    {
+        std::cout << '[' << i << ']' << emoji.verduras[i] << " " << produtos.verduras[i] << '\n';
     }
 }
 

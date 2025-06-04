@@ -1,10 +1,13 @@
+#ifndef ESTRUTURAS_H
+#define ESTRUTURAS_H
+
 #include <vector>
 #include <string>
 #include "cores.h"
 typedef struct PRODUTOS_FLV
 {
     std::vector<std::string> frutas{"maçã", "banana", "laranja", "manga", "uva", "abacaxi", "morango", "melancia", "kiwi", "pêssego"};
-    std::vector<std::string> legumes{"cenoura", "batata", "pimenta", "beringela", "alho", "pepino", "tomate", "vagem", "milho", "abobora"};
+    std::vector<std::string> legumes{"cenoura", "batata", " pimenta", "beringela", "alho", "pepino", "tomate", " vagem", "milho", "abobora"};
     std::vector<std::string> verduras{"alface", "couve", "espinafre", "rúcula", "agrião", "acelga", "escarola", "mostarda", "cebolinha", "salsinha"};
 
 } PRODUTOS_FLV;
@@ -51,3 +54,10 @@ typedef struct EMOJIS_PRODUTOS_FLV
     };
 
 } EMOJIS_PRODUTOS_FLV;
+
+typedef struct VARIAVEIS
+{
+    std::string op_fruta, op_legumes, op_verduras;
+} VARIAVEIS;
+
+#endif // ESTRUTURAS_H

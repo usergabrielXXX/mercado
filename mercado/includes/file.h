@@ -33,6 +33,4 @@ void retornarMensagens(const std::string &s)
     mensagemSaida(s);
 }
 
-
-
 #endif // FILE_H
