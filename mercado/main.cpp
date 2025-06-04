@@ -1,18 +1,19 @@
+// #pragma once
+
 #include "includes/file.h"
 
 int main(void)
 {
-    std::string opcao_menu;
+    std::string opcao_menu, opcao_hortifruti;
     VARIAVEIS variavel;
 
     do
     {
         menu_principal_mercado();
 
-        std::cout << NEGRITO << "[MENU] Insira a opção desejada: " << RESET;
+        // std::cout << NEGRITO << "[MENU] Insira a opção desejada: " << RESET;
+        std::printf("%s[MENU] Insira a opção desejada: %s", NEGRITO, RESET);
         std::getline(std::cin, opcao_menu);
-
-        std::string opcao_hortifruti;
 
         if (opcao_menu == "1") // hortifruti
         {
@@ -21,33 +22,22 @@ int main(void)
                 banner.banner_hortifruti();
                 menu_hortifruti();
 
-                std::cout << NEGRITO << "[HORTIFRUTI] Insira a opção desejada: " << RESET;
+                std::printf("%s[%sHORTIFRUTI%s] Insira a opção desejada: %s", NEGRITO, VERMELHO_CLARO, RESET, RESET);
                 std::getline(std::cin, opcao_hortifruti);
 
-                if (opcao_hortifruti == "1")
-                { // frutas
-                    do
-                    {
-                        banner.banner_frutas();
-                        exibir_frutas_hortifruti();
-                        std::cout << NEGRITO << "[FRUTAS] Insira a opção desejada: " << RESET;
-                        std::getline(std::cin, variavel.op_fruta);
-
-                        if (variavel.op_fruta == "<<")
-                        {
-                            break;
-                        }
-                    } while (1);
-                } // fim frutas
+                op_horti(opcao_hortifruti);
+                // retornarErro(opcao_hortifruti);
 
                 if (opcao_hortifruti == "<<")
                 {
+                    // return false;
                     break;
                 }
 
                 if (opcao_hortifruti > "3")
                 {
-                    std::cout << NEGRITO << VERMELHO << "Opção inválida!" << RESET << '\n';
+                    // std::cout << NEGRITO << VERMELHO << "Opção inválida!" << RESET << '\n';
+                    std::printf("%s%sOpção inválida!%s%s\n", NEGRITO, VERMELHO_CLARO, RESET, RESET);
                     contador();
                 }
 
@@ -58,7 +48,9 @@ int main(void)
                         banner.banner_legumes();
                         exibir_legumes_hortifruti();
 
-                        std::cout << NEGRITO << "[LEGUMES] Insira a opção desejada: " << RESET;
+                        // std::cout << NEGRITO << "[LEGUMES] Insira a opção desejada: " << RESET;
+                        // #define COLORIR_PERGUNTAS_HORTIFRUT
+                        std::printf("%s[%sLEGUMES%s] Insira a opção desejada: %s", NEGRITO, VERMELHO_CLARO, RESET, RESET);
                         std::getline(std::cin, variavel.op_legumes);
 
                         if (variavel.op_legumes == "<<")
@@ -76,7 +68,8 @@ int main(void)
                         banner.banner_verduras();
                         exibir_verduras_hortifruti();
 
-                        std::cout << NEGRITO << "[VERDURAS ] Insira a opção desejada: " << RESET;
+                        // std::cout << NEGRITO << "[VERDURAS ] Insira a opção desejada: " << RESET;
+                        std::printf("%s[%sLEGUMES%s] Insira a opção desejada: %s", NEGRITO, VERMELHO_CLARO, RESET, RESET);
                         std::getline(std::cin, variavel.op_verduras);
 
                         if (variavel.op_verduras == "<<")

@@ -1,3 +1,6 @@
+#ifndef CORES_H
+#define CORES_H
+
 #ifdef __linux__
 #define PRETO "\033[30m"
 #define VERMELHO "\033[31m"
@@ -38,3 +41,4 @@
 #define RESET "\033[0m"
 
 #endif // __linux__
+#endif // CORES_H

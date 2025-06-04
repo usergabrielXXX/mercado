@@ -19,7 +19,10 @@ typedef struct BANNERS
 
     bool banner_menu(void)
     {
+        // for(int i=0; i < 1000000; i++)
+        //     std::printf("\r%d", i);
         Clear();
+
 
         std::ifstream arquivo("includes/banners/1_bannerMenuPrincipal.txt");
         std::string linha;
