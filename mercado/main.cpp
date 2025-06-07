@@ -11,9 +11,10 @@ int main(void)
     {
         menu_principal_mercado();
 
-        // std::cout << NEGRITO << "[MENU] Insira a opção desejada: " << RESET;
         std::printf("%s[MENU] Insira a opção desejada: %s", NEGRITO, RESET);
         std::getline(std::cin, opcao_menu);
+
+        // pKill = &opcao_menu;
 
         if (opcao_menu == "1") // hortifruti
         {
@@ -84,9 +85,6 @@ int main(void)
         }
 
         retornarMensagens(opcao_menu);
-
-        /* fazer função que mata o programa independente da localização do user no programa */
-        /* palavra-chave: kill */
 
     } while (std::strcmp(opcao_menu.c_str(), "sair") != 0);
 

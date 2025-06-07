@@ -23,7 +23,6 @@ typedef struct BANNERS
         //     std::printf("\r%d", i);
         Clear();
 
-
         std::ifstream arquivo("includes/banners/1_bannerMenuPrincipal.txt");
         std::string linha;
 
@@ -165,12 +164,16 @@ void exibir_frutas_hortifruti(void)
 {
     PRODUTOS_FLV produtos;
     EMOJIS_PRODUTOS_FLV emoji;
+    PRECOS_HORTIFRUTI precos;
 
-    std::cout << NEGRITO << "Índice\tFrutas" << RESET << '\n';
-    size_t tamanho = std::min({produtos.frutas.size(), emoji.frutas.size()});
+    std::cout << NEGRITO << "Índice\tFrutas\t\t\tPreço" << RESET << '\n';
+    size_t tamanho = std::min({produtos.frutas.size(), emoji.frutas.size(), precos.preco_frutas.size()});
     for (size_t i = 0; i < tamanho; ++i)
     {
-        std::cout << '[' << i << ']' << emoji.frutas[i] << " " << produtos.frutas[i] << '\n';
+        std::cout << '[' << i << ']' << "\t" << '[' << emoji.frutas[i] << ']' << ' '
+                  << produtos.frutas[i] << NEGRITO << ITALICO << "\t\tR$ "
+                  << std::fixed << std::setprecision(2)
+                  << precos.preco_frutas[i] << "/kg" << RESET << '\n';
     }
 }
 
@@ -178,12 +181,17 @@ void exibir_legumes_hortifruti(void)
 {
     PRODUTOS_FLV produtos;
     EMOJIS_PRODUTOS_FLV emoji;
+    PRECOS_HORTIFRUTI precos;
 
-    std::cout << NEGRITO << "Índice\tLegumes" << RESET << '\n';
+    std::cout << NEGRITO << "Índice\tLegumes\tPreço" << RESET << '\n';
     size_t tamanho = std::min({produtos.legumes.size(), emoji.legumes.size()});
     for (size_t i = 0; i < tamanho; ++i)
     {
-        std::cout << '[' << i << ']' << emoji.legumes[i] << " " << produtos.legumes[i] << '\n';
+        // std::printf("[%lu] - %s %s\n", i, emoji.legumes[i], produtos.legumes[i]);
+        std::cout << '[' << i << ']' << "\t" << '[' << emoji.legumes[i] << ']' << ' '
+                  << produtos.legumes[i] << NEGRITO << ITALICO << "\t\tR$ "
+                  << std::fixed << std::setprecision(2)
+                  << precos.preco_legumes[i] << "/kg" << RESET << '\n';
     }
 }
 
@@ -191,12 +199,16 @@ void exibir_verduras_hortifruti(void)
 {
     PRODUTOS_FLV produtos;
     EMOJIS_PRODUTOS_FLV emoji;
+    PRECOS_HORTIFRUTI precos;
 
-    std::cout << NEGRITO << "Índice\tVerduras" << RESET << '\n';
+    std::cout << NEGRITO << "Índice\tVerduras\tPreço" << RESET << '\n';
     size_t tamanho = std::min({produtos.verduras.size(), emoji.verduras.size()});
     for (size_t i = 0; i < tamanho; ++i)
     {
-        std::cout << '[' << i << ']' << emoji.verduras[i] << " " << produtos.verduras[i] << '\n';
+        std::cout << '[' << i << ']' << "\t" << '[' << emoji.verduras[i] << ']' << ' '
+                  << produtos.verduras[i] << NEGRITO << ITALICO << "\t\tR$ "
+                  << std::fixed << std::setprecision(2)
+                  << precos.preco_verduras[i] << "/kg" << RESET << '\n';
     }
 }
 

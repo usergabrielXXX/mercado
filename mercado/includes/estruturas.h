@@ -55,9 +55,61 @@ typedef struct EMOJIS_PRODUTOS_FLV
 
 } EMOJIS_PRODUTOS_FLV;
 
+typedef struct PRECOS_HORTIFRUTI
+{
+    std::vector<double> preco_frutas{
+        6.49,  // maçã
+        4, 29, // banana
+        3.79,  // laranja
+        5.59,  // manga
+        9.89,  // uva
+        7.99,  // abacaxi
+        8.49,  // morango
+        2.99,  // melancia
+        1.99,  // kiwi
+        7.29   // pêssego
+    };
+
+    std::vector<double> preco_legumes{
+
+        3.49, // cenoura
+        4.19, // batata
+        6.90, // pimenta
+        5.29, // berinjela
+        2.49, // alho
+        3.79, // pepino
+        6.59, // tomate
+        7.99, // vagem
+        1.99, // milho
+        2.79  // abóbora
+    };
+
+    std::vector<double> preco_verduras{
+        2.99, // alface
+        2.49, // couve
+        3.49, // espinafre
+        2.79, // rúcula
+        2.59, // agrião
+        4.19, // acelga
+        3.89, // escarola
+        2.99, // mostarda
+        1.99, // cebolinha
+        1.99  // salsinha
+    };
+
+} PRECOS_HORTIFRUTI;
+
 typedef struct VARIAVEIS
 {
     std::string op_fruta, op_legumes, op_verduras;
 } VARIAVEIS;
+
+/* formas de pagamento
+   mexer nisso aqui depois */
+   
+// typedef struct FORMAS_DE_PAGAMENTO
+// {
+//     std::vector<std::string> f_pagamento{"pix, crédito, debito"};
+// } FORMAS_DE_PAGAMENTO;
 
 #endif // ESTRUTURAS_H

@@ -5,6 +5,7 @@
 #include <cstring>
 #include <algorithm>
 #include <fstream>
+#include <iomanip>
 #include <chrono>
 #include <thread>
 #include "banners.h"
@@ -33,7 +34,8 @@ void retornarMensagens(const std::string &s)
 {
     int n = 6;
     n = std::atoi(s.c_str());
-    if(n > 6){
+    if (n > 6)
+    {
         std::printf("%s%sErro! Essa opção não existe no MENU%s%s.\n", NEGRITO, VERMELHO_CLARO, RESET, RESET);
         contador();
     }
@@ -49,7 +51,6 @@ void op_horti(const std::string &op_frutas)
         {
             banner.banner_frutas();
             exibir_frutas_hortifruti();
-            // std::cout << NEGRITO << "[FRUTAS] Insira a opção desejada: " << RESET;
             std::printf("%s[%sFRUTAS%s] Insira a opção desejada: %s", NEGRITO, VERMELHO_CLARO, RESET, RESET);
             std::getline(std::cin, variavel.op_fruta);
 
@@ -66,7 +67,6 @@ int retornarErro(const std::string &erro)
 
     if (erro > "3")
     {
-        // std::cout << NEGRITO << VERMELHO << "Opção inválida!" << RESET << '\n';
         std::printf("%sOpção inválida!%s\n", NEGRITO, RESET);
         contador();
     }
