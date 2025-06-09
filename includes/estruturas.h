@@ -104,25 +104,8 @@ struct VARIAVEIS
     std::string op_fruta, op_legumes, op_verduras;
 } VARIAVEIS;
 
-/* formas de pagamento
-   mexer nisso aqui depois */
-
-// struct FORMAS_DE_PAGAMENTO
-// {
-//     std::vector<std::string> f_pagamento{"pix, crédito, debito"};
-// } FORMAS_DE_PAGAMENTO;
-
-// struct OP_PAGAMENTOS
-// {
-//     FORMAS_DE_PAGAMENTO formas_de_pagamento;
-
-//     void pagamento_hortifruti(const std::string &pagamento)
-//     {
-//         size_t tamahno = std::min({formas_de_pagamento.f_pagamento.size()});
-//         if (pagamento == "1"){
-
-//         }
-//     }
-// } OP_PAGAMENTOS;
+struct PAGAMENTOS{
+    std::vector<std::string> formasDePagamentos{"pix", "cartão de crédito", "cartão de débito"};
+}PAGAMENTOS;
 
 #endif // ESTRUTURAS_H

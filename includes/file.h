@@ -12,8 +12,18 @@
 
 #define TEMPO 1000
 
-BANNERS banner;
+struct BANNERS banner;
 struct VARIAVEIS variavel;
+struct PAGAMENTOS pagamentos;
+
+void op_pagamentos(void)
+{
+    size_t tam = std::min({pagamentos.formasDePagamentos.size()});
+    for (size_t i = 0; i < tam; i++)
+    {
+        std::cout << '[' << i << ']' << '\b' << pagamentos.formasDePagamentos[i] << '\n';
+    }
+}
 
 void contador(void)
 {
@@ -59,7 +69,27 @@ void op_frutas(const std::string &op_frutas)
             {
                 break;
             }
-            
+
+            int converter = std::stoi(variavel.op_fruta);
+
+            for (int i = 0; i < 10; i++)
+            {
+                converter = i;
+                // converter = std::stoi(variavel.op_fruta);
+            }
+
+            if (converter == 1)
+            {
+                std::cout << "teste" << '\n';
+                contador();
+            }
+
+            if (converter == 2)
+            {
+                std::cout << "teste - 2" << '\n';
+                contador();
+            }
+
         } while (1);
     } // fim frutas
 }
@@ -102,6 +132,7 @@ void op_verduras(const std::string &op_verduras)
             {
                 break;
             }
+
         } while (1);
 
     } // fim verduras
