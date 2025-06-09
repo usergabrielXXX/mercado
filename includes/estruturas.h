@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 #include "cores.h"
-typedef struct PRODUTOS_FLV
+struct PRODUTOS_FLV
 {
     std::vector<std::string> frutas{"maçã", "banana", "laranja", "manga", "uva", "abacaxi", "morango", "melancia", "kiwi", "pêssego"};
     std::vector<std::string> legumes{"cenoura", "batata", " pimenta", "beringela", "alho", "pepino", "tomate", " vagem", "milho", "abobora"};
@@ -12,7 +12,7 @@ typedef struct PRODUTOS_FLV
 
 } PRODUTOS_FLV;
 
-typedef struct EMOJIS_PRODUTOS_FLV
+struct EMOJIS_PRODUTOS_FLV
 {
     std::vector<std::string> frutas{
         "\U0001F34E", // maçã
@@ -55,7 +55,7 @@ typedef struct EMOJIS_PRODUTOS_FLV
 
 } EMOJIS_PRODUTOS_FLV;
 
-typedef struct PRECOS_HORTIFRUTI
+struct PRECOS_HORTIFRUTI
 {
     std::vector<double> preco_frutas{
         6.49,  // maçã
@@ -99,17 +99,30 @@ typedef struct PRECOS_HORTIFRUTI
 
 } PRECOS_HORTIFRUTI;
 
-typedef struct VARIAVEIS
+struct VARIAVEIS
 {
     std::string op_fruta, op_legumes, op_verduras;
 } VARIAVEIS;
 
 /* formas de pagamento
    mexer nisso aqui depois */
-   
-// typedef struct FORMAS_DE_PAGAMENTO
+
+// struct FORMAS_DE_PAGAMENTO
 // {
 //     std::vector<std::string> f_pagamento{"pix, crédito, debito"};
 // } FORMAS_DE_PAGAMENTO;
+
+// struct OP_PAGAMENTOS
+// {
+//     FORMAS_DE_PAGAMENTO formas_de_pagamento;
+
+//     void pagamento_hortifruti(const std::string &pagamento)
+//     {
+//         size_t tamahno = std::min({formas_de_pagamento.f_pagamento.size()});
+//         if (pagamento == "1"){
+
+//         }
+//     }
+// } OP_PAGAMENTOS;
 
 #endif // ESTRUTURAS_H

@@ -1,11 +1,9 @@
-// #pragma once
-
 #include "includes/file.h"
 
 int main(void)
 {
     std::string _opcao_menu, opcao_hortifruti;
-    VARIAVEIS variavel;
+    struct VARIAVEIS variavel;
 
     do
     {
@@ -15,7 +13,6 @@ int main(void)
         std::getline(std::cin, _opcao_menu);
 
         op_menu(_opcao_menu);
-
         retornarMensagens(_opcao_menu);
 
     } while (std::strcmp(_opcao_menu.c_str(), "sair") != 0);

@@ -13,7 +13,7 @@
 #define TEMPO 1000
 
 BANNERS banner;
-VARIAVEIS variavel;
+struct VARIAVEIS variavel;
 
 void contador(void)
 {
@@ -59,6 +59,7 @@ void op_frutas(const std::string &op_frutas)
             {
                 break;
             }
+            
         } while (1);
     } // fim frutas
 }
@@ -106,17 +107,16 @@ void op_verduras(const std::string &op_verduras)
     } // fim verduras
 }
 
-
 int retornarErro(const std::string &erro)
 {
-    
+
     if (erro > "3")
     {
         // std::cout << NEGRITO << VERMELHO << "Opção inválida!" << RESET << '\n';
         std::printf("%s%sOpção inválida!%s%s\n", NEGRITO, VERMELHO_CLARO, RESET, RESET);
         contador();
     }
-    
+
     return 0;
 }
 
