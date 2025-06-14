@@ -162,11 +162,6 @@ void menu_hortifruti(void)
 
 void exibir_frutas_hortifruti(void)
 {
-/*
-    struct PRODUTOS_FLV *produtos = new struct PRODUTOS_FLV();
-    struct EMOJIS_PRODUTOS_FLV *emoji = new struct EMOJIS_PRODUTOS_FLV();
-    struct PRECOS_HORTIFRUTI *precos = new struct PRECOS_HORTIFRUTI();
-*/
 
     struct PRODUTOS_FLV produtos;
     struct EMOJIS_PRODUTOS_FLV emoji;
@@ -180,19 +175,7 @@ void exibir_frutas_hortifruti(void)
                   << produtos.frutas[i] << NEGRITO << ITALICO << "\t\tR$ "
                   << std::fixed << std::setprecision(2)
                   << precos.preco_frutas[i] << "/kg" << RESET << '\n';
-/*
-        // std::cout << '[' << i << ']' << '\t' << '[' << emoji->frutas[i] << ']' << ' '
-        //           << produtos->frutas[i] << NEGRITO << ITALICO << "\t\tR$ "
-        //           << std::fixed << std::setprecision(2)
-        //           << precos->preco_frutas[i] << "/kg" << RESET << '\n';
-*/
     }
-/*
-    delete produtos; produtos = nullptr;
-    delete emoji; emoji = nullptr;
-    delete precos; precos = nullptr;
-*/
-
 }
 
 void exibir_legumes_hortifruti(void)
@@ -200,11 +183,7 @@ void exibir_legumes_hortifruti(void)
     struct PRODUTOS_FLV produtos;
     struct EMOJIS_PRODUTOS_FLV emoji;
     struct PRECOS_HORTIFRUTI precos;
-/*
-    struct PRODUTOS_FLV *produtos = new struct PRODUTOS_FLV();
-    struct EMOJIS_PRODUTOS_FLV *emoji = new struct EMOJIS_PRODUTOS_FLV();
-    struct PRECOS_HORTIFRUTI *precos = new struct PRECOS_HORTIFRUTI();
-*/
+
     std::cout << NEGRITO << "Índice\tLegumes\t\t\tPreço" << RESET << '\n';
     size_t tamanho = std::min({produtos.legumes.size(), emoji.legumes.size()});
     for (size_t i = 0; i < tamanho; ++i)
@@ -213,18 +192,7 @@ void exibir_legumes_hortifruti(void)
                   << produtos.legumes[i] << NEGRITO << ITALICO << "\t\tR$ "
                   << std::fixed << std::setprecision(2)
                   << precos.preco_legumes[i] << "/kg" << RESET << '\n';
-/*
-        std::cout << '[' << i << ']' << '\t' << '[' << emoji.legumes[i] << ']' << ' '
-                  << produtos.legumes[i] << NEGRITO << ITALICO << "\t\tR$ "
-                  << std::fixed << std::setprecision(2)
-                  << precos.preco_legumes[i] << "/kg" << RESET << '\n';
-*/
     }
-/*
-    delete produtos; produtos = nullptr;
-    delete emoji; emoji = nullptr;
-    delete precos; precos = nullptr;
-*/
 }
 
 void exibir_verduras_hortifruti(void)
@@ -232,11 +200,7 @@ void exibir_verduras_hortifruti(void)
     struct PRODUTOS_FLV produtos;
     struct EMOJIS_PRODUTOS_FLV emoji;
     struct PRECOS_HORTIFRUTI precos;
-/*
-    struct PRODUTOS_FLV *produtos = new struct PRODUTOS_FLV();
-    struct EMOJIS_PRODUTOS_FLV *emoji = new struct EMOJIS_PRODUTOS_FLV();
-    struct PRECOS_HORTIFRUTI *precos = new struct PRECOS_HORTIFRUTI();
-*/
+
     std::cout << NEGRITO << "Índice\tVerduras\t\tPreço" << RESET << '\n';
     size_t tamanho = std::min({produtos.verduras.size(), emoji.verduras.size()});
     for (size_t i = 0; i < tamanho; ++i)
@@ -245,19 +209,7 @@ void exibir_verduras_hortifruti(void)
                   << produtos.verduras[i] << NEGRITO << ITALICO << "\t\tR$ "
                   << std::fixed << std::setprecision(2)
                   << precos.preco_verduras[i] << "/kg" << RESET << '\n';
-/*
-        std::cout << '[' << i << ']' << '\t' << '[' << emoji->verduras[i] << ']' << ' '
-                  << produtos->verduras[i] << NEGRITO << ITALICO << "\t\tR$ "
-                  << std::fixed << std::setprecision(2)
-                  << precos->preco_verduras[i] << "/kg" << RESET << '\n';
-*/
     }
-
-/*
-    delete produtos; produtos = nullptr;
-    delete emoji; emoji = nullptr;
-    delete precos; precos = nullptr;
-*/
 }
 
 #endif // BANNER_H

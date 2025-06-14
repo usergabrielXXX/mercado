@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include "cores.h"
+
 struct PRODUTOS_FLV
 {
     std::vector<std::string> frutas{"maçã", "banana", "laranja", "manga", "uva", "abacaxi", "morango", "melancia", "kiwi", "pêssego"};
@@ -58,16 +59,16 @@ struct EMOJIS_PRODUTOS_FLV
 struct PRECOS_HORTIFRUTI
 {
     std::vector<double> preco_frutas{
-        6.49,  // maçã
-        4, 29, // banana
-        3.79,  // laranja
-        5.59,  // manga
-        9.89,  // uva
-        7.99,  // abacaxi
-        8.49,  // morango
-        2.99,  // melancia
-        1.99,  // kiwi
-        7.29   // pêssego
+        6.49, // maçã
+        4.29, // banana
+        3.79, // laranja
+        5.59, // manga
+        9.89, // uva
+        7.99, // abacaxi
+        8.49, // morango
+        2.99, // melancia
+        1.99, // kiwi
+        7.29  // pêssego
     };
 
     std::vector<double> preco_legumes{
@@ -102,10 +103,22 @@ struct PRECOS_HORTIFRUTI
 struct VARIAVEIS
 {
     std::string op_fruta, op_legumes, op_verduras;
+    std::string confirmar_pagamento_fruta;
 } VARIAVEIS;
 
-struct PAGAMENTOS{
+struct PAGAMENTOS
+{
     std::vector<std::string> formasDePagamentos{"pix", "cartão de crédito", "cartão de débito"};
-}PAGAMENTOS;
+} PAGAMENTOS;
+
+// struct TRATAR_PRODUTOS
+// {
+//     if (variavel.op_fruta == "0")
+//     {
+//         // printf("Fruta: %s\n", pt.frutas[0]);
+//         std::cout << "Fruta: " << pt.frutas[0] << '\n';
+//         contador();
+//     }
+// } TRATAR_PRODUTOS;
 
 #endif // ESTRUTURAS_H

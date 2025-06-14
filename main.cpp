@@ -9,7 +9,7 @@ int main(void)
     {
         menu_principal_mercado();
 
-        std::printf("%s[MENU] Insira a opção desejada: %s", NEGRITO, RESET);
+        printf("%s[MENU] Insira a opção desejada: %s", NEGRITO, RESET);
         std::getline(std::cin, _opcao_menu);
 
         op_menu(_opcao_menu);

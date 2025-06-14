@@ -15,13 +15,15 @@
 struct BANNERS banner;
 struct VARIAVEIS variavel;
 struct PAGAMENTOS pagamentos;
+struct PRODUTOS_FLV pt;
+struct EMOJIS_PRODUTOS_FLV em;
 
 void op_pagamentos(void)
 {
     size_t tam = std::min({pagamentos.formasDePagamentos.size()});
     for (size_t i = 0; i < tam; i++)
     {
-        std::cout << '[' << i << ']' << '\b' << pagamentos.formasDePagamentos[i] << '\n';
+        std::cout << '[' << i << ']' << ' ' << pagamentos.formasDePagamentos[i] << '\n';
     }
 }
 
@@ -65,29 +67,18 @@ void op_frutas(const std::string &op_frutas)
             printf("%s[%sFRUTAS%s] Insira a opção desejada: %s", NEGRITO, VERMELHO_CLARO, RESET, RESET);
             std::getline(std::cin, variavel.op_fruta);
 
+            if (variavel.op_fruta == "0")
+            {
+                op_pagamentos();
+                std::cout << "Fruta: " << pt.frutas[0] << ' ' << '[' << em.frutas[0] << ']' << '\n';
+                printf("Escolha a opção de pagamento: ");
+                std::getline(std::cin, variavel.confirmar_pagamento_fruta);
+                // std::this_thread::sleep_for(std::chrono::seconds(6));
+            }
+
             if (variavel.op_fruta == "<<")
             {
                 break;
-            }
-
-            int converter = std::stoi(variavel.op_fruta);
-
-            for (int i = 0; i < 10; i++)
-            {
-                converter = i;
-                // converter = std::stoi(variavel.op_fruta);
-            }
-
-            if (converter == 1)
-            {
-                std::cout << "teste" << '\n';
-                contador();
-            }
-
-            if (converter == 2)
-            {
-                std::cout << "teste - 2" << '\n';
-                contador();
             }
 
         } while (1);
@@ -144,7 +135,7 @@ int retornarErro(const std::string &erro)
     if (erro > "3")
     {
         // std::cout << NEGRITO << VERMELHO << "Opção inválida!" << RESET << '\n';
-        std::printf("%s%sOpção inválida!%s%s\n", NEGRITO, VERMELHO_CLARO, RESET, RESET);
+        printf("%s%sOpção inválida!%s%s\n", NEGRITO, VERMELHO_CLARO, RESET, RESET);
         contador();
     }
 
@@ -161,7 +152,7 @@ void op_menu(const std::string &op_menu)
             banner.banner_hortifruti();
             menu_hortifruti();
 
-            std::printf("%s[%sHORTIFRUTI%s] Insira a opção desejada: %s", NEGRITO, VERMELHO_CLARO, RESET, RESET);
+            printf("%s[%sHORTIFRUTI%s] Insira a opção desejada: %s", NEGRITO, VERMELHO_CLARO, RESET, RESET);
             std::getline(std::cin, opcao_hortifruti);
 
             op_frutas(opcao_hortifruti);
